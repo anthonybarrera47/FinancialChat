@@ -9,5 +9,7 @@ namespace FinancialChat.Data
             : base(options)
         {
         }
+        public DbSet<Models.ChatMessage> ChatMessages { get; set; }
+
     }
 }

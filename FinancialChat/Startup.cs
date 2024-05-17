@@ -1,4 +1,7 @@
 ﻿using FinancialChat.Data;
+using FinancialChat.Hubs;
+using FinancialChat.Services.Interfaces;
+using FinancialChat.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +26,10 @@ namespace FinancialChat
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSignalR();
+            services.AddSingleton<IMessageQueueService, RabbitMQService>();
+            services.AddSingleton<StockBotService>();
+            services.AddHostedService(provider => provider.GetService<StockBotService>());
         }
 
         // Este método es llamado por el runtime. Use este método para configurar el pipeline de solicitudes HTTP.
@@ -52,6 +59,7 @@ namespace FinancialChat
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chathub");
             });
         }
     }
