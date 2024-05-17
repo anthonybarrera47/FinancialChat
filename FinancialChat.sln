@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialChat", "FinancialChat\FinancialChat.csproj", "{5966AC76-3546-4362-B1EF-32D9273D9B87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialChatUnitTest", "FinancialChatTest\FinancialChatUnitTest.csproj", "{73EDFCD0-E19C-40BA-B3DB-4912B92C953E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialChatIntegrationTest", "FinancialChatIntegrationTest\FinancialChatIntegrationTest.csproj", "{3AA9FC5F-D9FC-4B44-BADB-AECD2CA09634}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5966AC76-3546-4362-B1EF-32D9273D9B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5966AC76-3546-4362-B1EF-32D9273D9B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5966AC76-3546-4362-B1EF-32D9273D9B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73EDFCD0-E19C-40BA-B3DB-4912B92C953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73EDFCD0-E19C-40BA-B3DB-4912B92C953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73EDFCD0-E19C-40BA-B3DB-4912B92C953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73EDFCD0-E19C-40BA-B3DB-4912B92C953E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA9FC5F-D9FC-4B44-BADB-AECD2CA09634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA9FC5F-D9FC-4B44-BADB-AECD2CA09634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA9FC5F-D9FC-4B44-BADB-AECD2CA09634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA9FC5F-D9FC-4B44-BADB-AECD2CA09634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
