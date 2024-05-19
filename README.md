@@ -23,3 +23,23 @@ FinancialChat is a web application that allows users to communicate in real-time
 ```sh
 git clone https://github.com/yourusername/FinancialChat.git
 cd FinancialChat
+```
+### Stop Existing Containers (if any):
+```sh
+docker-compose down
+```
+This command stops and removes all running containers defined in your docker-compose.yml file.
+
+### Build and Run the Containers:
+```sh
+docker-compose up --build
+```
+This command builds the Docker images and starts the containers as defined in your docker-compose.yml file. The --build flag forces a rebuild of the images.
+
+### Run unit tests using the .NET CLI:
+
+```sh
+dotnet test
+```
+This command runs all unit tests in the solution, ensuring that your application is functioning correctly.
+
