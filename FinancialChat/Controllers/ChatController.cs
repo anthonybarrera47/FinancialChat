@@ -43,7 +43,7 @@ namespace FinancialChat.Controllers
             {
                 var user = await _userManager.GetUserAsync(User);
 
-                if (request.Message.StartsWith("/stock="))
+                if (request.Message.StartsWith("/"))
                 {
                     _messageQueueService.Publish(request.Message);
                     await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", user.UserName, request.Message);
