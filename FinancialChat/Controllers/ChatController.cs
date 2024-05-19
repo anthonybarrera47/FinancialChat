@@ -45,13 +45,11 @@ namespace FinancialChat.Controllers
 
                 if (request.Message.StartsWith("/stock="))
                 {
-                    // Publicar el mensaje en la cola y no guardarlo en la base de datos
                     _messageQueueService.Publish(request.Message);
                     await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", user.UserName, request.Message);
                 }
                 else
                 {
-                    // Guardar el mensaje en la base de datos y enviarlo a los clientes
                     var chatMessage = new ChatMessage
                     {
                         UserId = user.Id,

@@ -1,0 +1,21 @@
+﻿@model FinancialChat.Models.ErrorViewModel
+
+<h1 class="text-danger">Error</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.StatusCode != 0)
+{
+    <p>Status Code: <strong>@Model.StatusCode</strong></p>
+}
+
+<p>
+    <strong>Request ID:</strong> <code>@Model.RequestId</code>
+</p>
+
+<p>
+    <strong>Details:</strong> <code>@Model.ErrorDetails</code>
+</p>
+
+<p>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</p>
