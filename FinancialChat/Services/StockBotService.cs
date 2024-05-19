@@ -25,21 +25,34 @@
                 };
         }
 
-            protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            _messageQueueService.Subscribe(async (message) =>
             {
-                _messageQueueService.Subscribe(async (message) =>
+                try
                 {
+                    if (!message.StartsWith("/stock="))
+                    {
+                        await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", "StockBot", "Command not recognized. Please use the /stock= command.");
+                        return;
+                    }
+
                     var stockCode = message.Split('=')[1];
                     var stockQuote = await GetStockQuote(stockCode);
                     var responseMessage = $"{stockCode.ToUpper()} quote is ${stockQuote} per share";
 
                     await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", "StockBot", responseMessage);
-                });
+                }
+                catch (Exception ex)
+                {
+                    await _chatHubContext.Clients.All.SendAsync("ReceiveMessage", "StockBot", $"An error occurred: {ex.Message}");
+                }
+            });
 
-                return Task.CompletedTask;
-            }
+            return Task.CompletedTask;
+        }
 
-            private async Task<string> GetStockQuote(string stockCode)
+        private async Task<string> GetStockQuote(string stockCode)
             {
                 var response = await _httpClient.GetAsync($"https://stooq.com/q/l/?s={stockCode}&f=sd2t2ohlcv&h&e=csv");
                 response.EnsureSuccessStatusCode();
