@@ -21,7 +21,7 @@ FinancialChat is a web application that allows users to communicate in real-time
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/FinancialChat.git
+git clone https://github.com/anthonybarrera47/FinancialChat.git
 cd FinancialChat
 ```
 ### Stop Existing Containers (if any):
